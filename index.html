@@ -1,53 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>INSCRIPTION NSCT SAISONNIER</title><link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NSCT - Inscription Saisonnière</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--primary:#0d7a3e;--bg:#f5f7f6}
+body{font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);margin:0;padding:20px}
+.container{max-width:1100px;margin:0 auto;background:white;padding:25px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+h1{color:var(--primary);text-align:center}
+.subtitle{text-align:center;color:#666;margin-bottom:20px}
+.status{padding:12px;background:#e6f4ea;border-radius:8px;text-align:center;margin-bottom:15px;font-weight:700}
+.tabs{display:flex;gap:10px;margin-bottom:20px}
+.tab{padding:10px 20px;border-radius:8px;border:1px solid #ddd;background:#fff;cursor:pointer;font-weight:600}
+.tab.active{background:var(--primary);color:white}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+input,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
+label{font-weight:600;font-size:.9em;display:block;margin-bottom:4px}
+.btn{background:var(--primary);color:white;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;font-weight:700;width:100%;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:.9em}
+th,td{padding:10px;border-bottom:1px solid #eee;text-align:left}
+th{background:#f8f8f8}
+</style>
 </head>
 <body>
-<div id="app">
-<header>
-  <div class="brand"><div id="headerLogo" class="logo">NSCT</div><div><h1 id="headerTitle">INSCRIPTION NSCT SAISONNIER</h1><small id="headerSubtitle">Gestion des recrutements saisonniers</small></div></div>
-  <div id="headerCountdown" class="headerCountdown"><strong>Fin des inscriptions</strong><span data-countdown>Fin des inscriptions : non configurée</span></div>
-  <div id="sessionBox"></div>
-</header>
-
-<div id="welcomeSplash" class="welcomeSplash" role="dialog" aria-label="Bienvenue sur la plateforme NSCT" onclick="dismissWelcome()">
-  <div class="welcomeSplashInner" onclick="event.stopPropagation()">
-    <div class="welcomeKicker">NOUVELLE SOCIÉTÉ COTONNIÈRE DU TOGO</div>
-    <h1>Bienvenue, talidéou, gnènitali, wézon</h1>
-    <p class="welcomeMessage">Soyez les bienvenus sur la plateforme d’inscription des saisonniers de la Nouvelle Société Cotonnière du Togo (NSCT). Nous vous souhaitons une bonne expérience.</p>
-    <div id="welcomePhotoGallery" class="welcomePhotoGallery"></div>
-    <button type="button" class="welcomeEnter" onclick="dismissWelcome()">Passer à la page d’accueil →</button>
-    <p class="welcomeHint">Cliquez sur cette page ou sur le bouton pour continuer.</p>
-  </div>
+<div class="container">
+<h1>🌱 NSCT - Inscription Campagne</h1>
+<p class="subtitle">Synchronisé - Anié • Kpélé • Lomé • Atakpamé • Kpalimé</p>
+<div id="syncStatus" class="status">🔄 Connexion à la base centrale...</div>
+<div class="tabs">
+<button class="tab active" id="t1" onclick="switchTab('inscription')">📝 Nouvelle Inscription</button>
+<button class="tab" id="t2" onclick="switchTab('liste')">📋 Liste (<span id="count">0</span>)</button>
 </div>
-
-<div id="loginView" class="center">
-  <div class="card login">
-    <div id="homeScreen">
-      <div id="homeBrand"></div><h2>Bienvenue</h2>
-      <div class="homeChoices">
-        <button onclick="openLogin('admin')">Administration</button>
-        <button onclick="openLogin('candidate')">Candidat</button>
-        <button class="secondary" onclick="openCreateAccount()">Création compte</button>
-        <button class="secondary" onclick="openForgot()">Identifiant ou mot de passe oublié</button>
-      </div>
-    </div>
-    <div id="authScreen" class="hidden">
-      <div id="authZone"></div>
-      <p id="loginMsg" class="msg"></p>
-    </div>
-  </div>
+<div id="tab-inscription">
+<div class="form-grid">
+<div><label>Nom *</label><input id="nom" placeholder="Ex: KOUVI"></div>
+<div><label>Prénoms *</label><input id="prenoms" placeholder="Ex: Koffi"></div>
+<div><label>Village / Zone *</label><input id="village" placeholder="Ex: Anié"></div>
+<div><label>Téléphone *</label><input id="telephone" placeholder="90 12 34 56"></div>
+<div><label>Superficie (ha)</label><input id="superficie" type="number" step="0.1"></div>
+<div><label>Culture</label><select id="culture"><option>Soja</option><option>Maïs</option><option>Riz</option><option>Autre</option></select></div>
+<div><label>Carte Producteur</label><input id="carte"></div>
+<div><label>Agent</label><input id="agent"></div>
+</div><br>
+<button class="btn" onclick="enregistrer()">✅ Enregistrer et Synchroniser</button>
 </div>
-
-<div id="mainView" class="hidden">
-  <aside id="sidebar">
-    <button class="collapseBtn" onclick="toggleSidebar()">☰ MENU</button>
-    <div id="navZone"></div>
-    </aside>
-  <main id="content"></main>
+<div id="tab-liste" style="display:none">
+<table><thead><tr><th>Date</th><th>Nom</th><th>Village</th><th>Tél</th><th>Culture</th><th>Agent</th><th></th></tr></thead><tbody id="tbody"></tbody></table><br>
+<button class="btn" style="background:#1a73e8" onclick="exportExcel()">📥 Exporter Excel</button>
 </div>
 </div>
-<script src="app.js"></script>
-</body></html>
+<script>
+const SUPABASE_URL = "https://qcrginvdmumygvxdrelp.supabase.co";
+const SUPABASE_KEY = "sb_publishable_7nE16GZJaJbBZkto8UhwvQ_adRTvtD6";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let inscriptions=[];
+async function init(){
+ const status=document.getElementById('syncStatus');
+ try{
+  const {data,error}=await supabaseClient.from('inscriptions').select('*').order('created_at',{ascending:false});
+  if(error) throw error;
+  inscriptions=data;
+  status.innerHTML="✅ Connecté - "+inscriptions.length+" inscriptions synchronisées";
+  render();
+  supabaseClient.channel('inscriptions').on('postgres_changes',{event:'*',schema:'public',table:'inscriptions'},p=>{
+   if(p.eventType==='INSERT') inscriptions.unshift(p.new);
+   if(p.eventType==='DELETE') inscriptions=inscriptions.filter(i=>i.id!==p.old.id);
+   render();
+  }).subscribe();
+ }catch(e){status.innerHTML="❌ Erreur: "+e.message; status.style.background="#fdecea";}
+}
+function switchTab(t){
+ document.getElementById('tab-inscription').style.display=t==='inscription'?'block':'none';
+ document.getElementById('tab-liste').style.display=t==='liste'?'block':'none';
+ document.getElementById('t1').classList.toggle('active',t==='inscription');
+ document.getElementById('t2').classList.toggle('active',t==='liste');
+}
+async function enregistrer(){
+ const nom=document.getElementById('nom').value.trim(); const prenoms=document.getElementById('prenoms').value.trim();
+ const village=document.getElementById('village').value.trim(); const telephone=document.getElementById('telephone').value.trim();
+ if(!nom||!prenoms||!village||!telephone){alert('Remplis Nom, Prénoms, Village, Téléphone *');return;}
+ const d={nom:nom.toUpperCase(),prenoms,village,telephone,superficie:document.getElementById('superficie').value,culture:document.getElementById('culture').value,carte:document.getElementById('carte').value,agent:document.getElementById('agent').value};
+ const {error}=await supabaseClient.from('inscriptions').insert([d]); if(error){alert(error.message);return;}
+ alert('✅ Enregistré sur tous les postes!'); document.querySelectorAll('#tab-inscription input').forEach(i=>i.value=''); switchTab('liste');
+}
+function render(){
+ document.getElementById('count').innerText=inscriptions.length;
+ document.getElementById('tbody').innerHTML=inscriptions.map(i=>`<tr><td>${new Date(i.created_at).toLocaleDateString('fr-TG')} ${new Date(i.created_at).toLocaleTimeString('fr-TG').slice(0,5)}</td><td><b>${i.nom}</b> ${i.prenoms}</td><td>${i.village}</td><td>${i.telephone}</td><td>${i.culture||''}</td><td>${i.agent||''}</td><td><button onclick="supprimer('${i.id}')">🗑️</button></td></tr>`).join('');
+}
+async function supprimer(id){if(!confirm('Supprimer?'))return; await supabaseClient.from('inscriptions').delete().eq('id',id);}
+function exportExcel(){
+ let csv="Date,Nom,Prenoms,Village,Telephone,Superficie,Culture,Carte,Agent\n";
+ inscriptions.forEach(i=>{csv+=`"${i.created_at}","${i.nom}","${i.prenoms}","${i.village}","${i.telephone}","${i.superficie||''}","${i.culture||''}","${i.carte||''}","${i.agent||''}"\n`;});
+ const b=new Blob([csv],{type:'text/csv'}); const u=URL.createObjectURL(b); const a=document.createElement('a'); a.href=u; a.download='NSCT_'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
+}
+init();
+</script>
+</body>
+</html>
