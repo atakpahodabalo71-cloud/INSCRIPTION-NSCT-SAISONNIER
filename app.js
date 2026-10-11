@@ -12,7 +12,7 @@ try{db=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){
 db=db||{
  users:[{id:"ATAKPA",pwd:"ATAKPA",nom:"ATAKPA",prenoms:"Hodabalo",role:"Administrateur",active:true,perms:["all"]}],
  applicants:[],registrations:[],activities:[],
- settings:{newFields:DEFAULT_FIELDS,teams:["ÉQUIPE A","ÉQUIPE B","ÉQUIPE C","ÉQUIPE D"],usines:["USINE DAPAONG"],"USINE KARA","USINE NOTSE","USINE ATAKPAME",roles:["Recruteur","Chef Quart","Chef Usine","Administrateur"],startAt:"",endAt:"",resultsAt:"",importedTemplate:null,companyName:"NSCT",companySubtitle:"Gestion des recrutements saisonniers",homePhoto:"",homePhotos:[],companyLogo:"",adminProfile:{nom:"",prenoms:""},resultsPublic:false},
+ settings:{newFields:DEFAULT_FIELDS,teams:["ÉQUIPE A","ÉQUIPE B","ÉQUIPE C","ÉQUIPE D"],usines:["USINE DAPAONG"],"USINE KARA","USINE NOTSE","USINE ATAKPAME"],roles:["Recruteur","Chef Quart","Chef Usine","Administrateur"],startAt:"",endAt:"",resultsAt:"",importedTemplate:null,companyName:"NSCT",companySubtitle:"Gestion des recrutements saisonniers",homePhoto:"",homePhotos:[],companyLogo:"",adminProfile:{nom:"",prenoms:""},resultsPublic:false},
  seq:1000,applicantSeq:1000,registrationSeq:1000
 };
 let session=null, authMode="admin", timerHandle=null;
