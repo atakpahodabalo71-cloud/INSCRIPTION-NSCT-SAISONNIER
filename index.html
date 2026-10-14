@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport"
-content="width=device-width,initial-scale=1">
-<title>INSCRIPTION NSCT SAISONNIER</title><link rel="stylesheet"
-href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INSCRIPTION NSCT SAISONNIER</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
 <header>
-  <div class="brand"><div id="headerLogo"
-class="logo">NSCT</div><div><h1 id="headerTitle">INSCRIPTION NSCT
-SAISONNIER</h1><small id="headerSubtitle">Gestion des recrutements
-saisonniers</small></div></div>
-  <div id="headerCountdown" class="headerCountdown"><strong>Fin des
-inscriptions</strong><span data-countdown>Fin des inscriptions : non
-configurée</span></div>
+  <div class="brand"><div id="headerLogo" class="logo">NSCT</div><div><h1 id="headerTitle">INSCRIPTION NSCT SAISONNIER</h1><small id="headerSubtitle">Gestion des recrutements saisonniers</small></div></div>
+  <div id="headerCountdown" class="headerCountdown"><strong>Fin des inscriptions</strong><span data-countdown>Fin des inscriptions : non configurée</span></div>
   <div id="sessionBox"></div>
 </header>
 
-<div id="welcomeSplash" class="welcomeSplash" role="dialog"
-aria-label="Bienvenue sur la plateforme NSCT"
-onclick="dismissWelcome()">
+<div id="welcomeSplash" class="welcomeSplash" role="dialog" aria-label="Bienvenue sur la plateforme NSCT" onclick="dismissWelcome()">
   <div class="welcomeSplashInner" onclick="event.stopPropagation()">
     <div class="welcomeKicker">NOUVELLE SOCIÉTÉ COTONNIÈRE DU TOGO</div>
     <h1>Bienvenue, talidéou, gnènitali, wézon</h1>
-    <p class="welcomeMessage">Soyez les bienvenus sur la plateforme
-d’inscription des saisonniers de la Nouvelle Société Cotonnière du
-Togo (NSCT). Nous vous souhaitons une bonne expérience.</p>
+    <p class="welcomeMessage">Soyez les bienvenus sur la plateforme d’inscription des saisonniers de la Nouvelle Société Cotonnière du Togo (NSCT). Nous vous souhaitons une bonne expérience.</p>
     <div id="welcomePhotoGallery" class="welcomePhotoGallery"></div>
-    <button type="button" class="welcomeEnter"
-onclick="dismissWelcome()">Passer à la page d’accueil →</button>
-    <p class="welcomeHint">Cliquez sur cette page ou sur le bouton
-pour continuer.</p>
+    <button type="button" class="welcomeEnter" onclick="dismissWelcome()">Passer à la page d’accueil →</button>
+    <p class="welcomeHint">Cliquez sur cette page ou sur le bouton pour continuer.</p>
   </div>
 </div>
 
@@ -43,10 +30,9 @@ pour continuer.</p>
       <div class="homeChoices">
         <button onclick="openLogin('admin')">Administration</button>
         <button onclick="openLogin('candidate')">Candidat</button>
-        <button class="secondary"
-onclick="openCreateAccount()">Création compte</button>
-        <button class="secondary" onclick="openForgot()">Identifiant
-ou mot de passe oublié</button>
+        <button class="secondary" onclick="openCreateAccount()">Création compte</button>
+        <button class="secondary" onclick="openForgot()">Identifiant ou mot de passe oublié</button>
+        <button class="secondary" onclick="downloadUserGuide()">Guide d’utilisation de la plateforme (PDF)</button>
       </div>
     </div>
     <div id="authScreen" class="hidden">

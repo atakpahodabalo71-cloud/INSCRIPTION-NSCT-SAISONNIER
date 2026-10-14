@@ -1,0 +1,15 @@
+INSCRIPTION NSCT SAISONNIER — V43
+
+Nouveautés :
+1. Formulaire ANCIEN : le fichier NIF est obligatoire.
+2. Le dernier bulletin de paie reste obligatoire au format PDF.
+3. La zone « Documents à fournir » exige au moins un type de document coché et un fichier par document coché. Plusieurs documents peuvent être cochés et importés.
+4. Le bouton « Suivant — vérifier les informations » ne peut pas continuer si le NIF, le bulletin de paie ou les documents obligatoires manquent ou ne correspondent pas.
+5. Le guide PDF contient un parcours illustré avec étapes et flèches, adapté à l’accès connecté et aux autorisations du compte. Depuis l’accueil, le guide décrit le parcours général.
+
+Installation :
+- Décompresser l’archive dans un nouveau dossier.
+- Ouvrir index.html.
+- Garder une sauvegarde de l’ancienne version et ne pas effacer les données du navigateur.
+
+Important : cette application fonctionne localement dans le navigateur ; le guide PDF s’ouvre dans une fenêtre d’impression. Choisir « Enregistrer au format PDF ».

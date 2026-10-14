@@ -1,0 +1,14 @@
+INSCRIPTION NSCT SAISONNIER — V44
+
+NOUVEAUTÉ : OPTION DE SUPPRESSION DES COMPTES CANDIDATS À LA REMISE À ZÉRO
+
+Dans Administration > Paramètres > Sauvegarde / mise à jour du système > Remise à zéro, une case à cocher permet de choisir si les comptes des candidats doivent aussi être supprimés.
+
+- Case décochée (comportement par défaut) : les candidatures et les activités sont effacées, mais les comptes des candidats restent enregistrés. Les paramètres et le compte administrateur sont conservés.
+- Case cochée : les candidatures, les activités et les comptes des candidats sont supprimés. Les paramètres et le compte administrateur sont conservés.
+
+Deux confirmations sont demandées avant l'opération. Il est recommandé de télécharger une sauvegarde avant toute remise à zéro.
+
+Installation : extraire le ZIP dans un nouveau dossier puis ouvrir index.html. Garder une copie de la version précédente.
+
+Note : l'application continue d'utiliser le stockage local du navigateur. Une remise à zéro dans un navigateur ne synchronise pas les autres ordinateurs.

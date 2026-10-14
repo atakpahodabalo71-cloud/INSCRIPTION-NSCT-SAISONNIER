@@ -1,0 +1,16 @@
+VERSION V40 — CORRECTION DES PRÉNOMS DANS PARAMÈTRES ADMINISTRATEUR
+
+Correction : dans Paramètres administrateur, le champ Prénoms accepte désormais plusieurs prénoms séparés par des espaces.
+
+Chaque prénom commence automatiquement par une majuscule, y compris après un espace, un tiret ou une apostrophe.
+Exemple : « hodabalo arsène » devient « Hodabalo Arsène ».
+
+L'espace de fin n'est plus supprimé pendant la saisie, ce qui permet de taper un deuxième ou un troisième prénom. Les prénoms sont normalisés et nettoyés avant l'enregistrement.
+Le nom reste automatiquement converti en majuscules.
+
+Pour installer : extraire le ZIP dans un nouveau dossier et ouvrir index.html. Gardez votre ancienne version et vos données en sauvegarde.
+Remarque : l'application conserve les données dans le navigateur local ; le ZIP seul ne synchronise pas les données entre plusieurs appareils.
+
+
+VERSION GUIDE UTILISATEUR
+Un bouton « Guide d’utilisation de la plateforme (PDF) » est disponible sur la page d’accueil et sous le contact administrateur dans le menu. Une fois connecté, le guide affiche le rôle, l’usine et les rubriques autorisées pour le compte. Cliquez sur le bouton puis choisissez « Enregistrer au format PDF » dans la fenêtre d’impression du navigateur.

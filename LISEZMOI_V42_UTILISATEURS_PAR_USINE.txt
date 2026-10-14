@@ -1,0 +1,18 @@
+INSCRIPTION NSCT SAISONNIER — VERSION V42
+
+NOUVEAUTÉ : UTILISATEURS AUTORISÉS CLASSÉS PAR SECTION D'USINE
+
+1. Dans Paramètres, enregistrez d'abord les noms des usines.
+2. Dans « Créer / modifier un utilisateur », sélectionnez obligatoirement l'usine concernée avant d'enregistrer le compte.
+3. Après enregistrement, le compte apparaît dans « Utilisateurs autorisés — classés par section d'usine », sous la section de l'usine choisie.
+4. Pour déplacer un compte vers une autre usine, cliquez sur « Modifier », choisissez la nouvelle usine et enregistrez.
+5. Les anciens comptes dont l'usine est absente ou inconnue sont regroupés dans « À vérifier — usine non définie ou inconnue » afin de pouvoir les corriger.
+6. L'administrateur principal reste dans une section distincte « Administration principale ».
+
+Les autorisations de chaque compte restent associées à ce compte. La sélection d'une usine permet de classer le compte et de limiter l'accès selon les règles déjà prévues par l'application.
+
+INSTALLATION
+- Faites une copie de sauvegarde de votre version précédente.
+- Extrayez ce ZIP dans un nouveau dossier.
+- Ouvrez index.html pour lancer l'application hors connexion.
+- Les données de cette application locale sont stockées dans le navigateur de l'appareil. GitHub Pages seul ne synchronise pas les données entre plusieurs appareils.

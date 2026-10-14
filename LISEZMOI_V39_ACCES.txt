@@ -1,0 +1,16 @@
+VERSION V39 — ACCÈS PAR MOT DE PASSE AVANT LA PAGE D’ACCUEIL
+
+Nouveautés :
+- Après l’écran de bienvenue, un mot de passe d’accès est demandé avant l’affichage de l’accueil.
+- Trois accès séparés : Administrateur principal, Personnel, Candidat.
+- L’accueil Candidat affiche uniquement la connexion candidat, la création de compte et la récupération d’identifiants.
+- L’accueil Personnel affiche uniquement Administration — Personnel ; le code Personnel est demandé une seconde fois avant la connexion personnelle.
+- L’accueil Administrateur affiche toutes les options de la page d’accueil. Après ce code d’accès, l’administrateur se connecte encore avec son identifiant et son mot de passe habituels.
+- Dans Paramètres, une nouvelle section « Mots de passe d’accès » permet à l’administrateur principal de modifier les trois codes.
+
+Configuration initiale :
+- Code d’accès Administrateur : admin123
+- Codes Personnel et Candidat : à définir par l’administrateur dans Paramètres avant de les remettre aux utilisateurs.
+- Le mot de passe administrateur de connexion reste séparé du code d’accès initial.
+
+IMPORTANT : cette application utilise localStorage. Les codes et les données sont stockés dans le navigateur et ne sont pas partagés entre ordinateurs/téléphones. GitHub Pages seul ne fournit ni base de données commune ni authentification serveur. Ne pas utiliser cette protection locale pour de vraies données personnelles en production ; pour un usage partagé, connecter une base et une authentification sécurisées.

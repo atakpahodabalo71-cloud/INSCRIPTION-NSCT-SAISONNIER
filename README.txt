@@ -27,4 +27,3 @@ Résultats candidats — V38
 - Le message « Contact administrateur : 93797173 » a été retiré de l’espace candidat, dans l’onglet Résultats.
 - Les informations de l’entête du résultat imprimé sont centrées, avec le logo de l’entreprise s’il est configuré.
 - Deux actions sont disponibles : « Imprimer mon résultat » et « Télécharger en PDF ». Elles ouvrent une fiche prête à imprimer ; dans la fenêtre d’impression, choisir « Enregistrer au format PDF » pour conserver le fichier sur ordinateur ou téléphone.
-Mon site :[INSCRIPTION NSCT SAISONNIER] (https://nsct-saisonnier.com/inscription)
