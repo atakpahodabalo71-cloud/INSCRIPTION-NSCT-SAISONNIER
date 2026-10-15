@@ -50,5 +50,26 @@
   <main id="content"></main>
 </div>
 </div>
+<!-- Connexion aux services Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCYE_pAQ0OQuRHSiKSQj5vWn7uG9Zbj0rk",
+  authDomain: "inscription-nsct-saisonnier.firebaseapp.com",
+  projectId: "inscription-nsct-saisonnier",
+  storageBucket: "inscription-nsct-saisonnier.firebasestorage.app",
+  messagingSenderId: "757023197367",
+  appId: "1:757023197367:web:763f9df47848784d816532"
+};
+
+firebase.initializeApp(firebaseConfig);
+window.auth = firebase.auth();
+window.dbFirestore = firebase.firestore();
+</script>
+
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
